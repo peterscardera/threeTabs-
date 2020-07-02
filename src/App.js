@@ -1,26 +1,81 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-function App() {
+import TabButtons from './components/TabButtons/TabButtons';
+import TabOneForms from './components/TabOne/TabOneForms';
+import TabTwoNames from './components/TabTwo/TabTwoNames';
+import TabThreeAnimals from './components/TabThree/TabThreeAnimals';
+
+const App = () => {
+  //state that dictates which tab we're on
+  const [pageState, setPageState] = useState('Forms');
+
+  const [listOfNames, setListOfNames] = useState([]);
+  const [listOfAnimals, setListOfAnimals] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Container>
+          <TabButtons pageState={pageState} setPageState={setPageState} />
+          {pageState === 'Forms' ? (
+            <TabOneForms
+              listOfAnimals={listOfAnimals}
+              setListOfAnimals={setListOfAnimals}
+              listOfNames={listOfNames}
+              setListOfNames={setListOfNames}
+            />
+          ) : pageState === 'Names' ? (
+            <TabTwoNames listOfNames={listOfNames} />
+          ) : (
+            pageState === 'Animals' && <TabThreeAnimals listOfAnimals={listOfAnimals} />
+          )}
+        </Container>
+      </ThemeProvider>
+    </>
   );
-}
+};
 
 export default App;
+
+const theme = {
+  fontFamily: 'Noto Sans JP',
+  colors: {
+    bizDark: '#2D323B',
+    bizLight: '#373D49',
+    bizOrange: '#F95245',
+    offWhite: '#EDEDED',
+    black: '#000000',
+  },
+};
+const GlobalStyle = createGlobalStyle`
+html {
+    box-sizing: border-box;
+    background:#eee
+   
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.3rem;
+     font-family: 'Noto Sans JP', sans-serif;
+  }
+  a {
+    text-decoration: none;
+   
+  }
+  button {  font-family: 'radnika_next'; }
+`;
+
+const Container = styled.div`
+  margin-top: 20px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
