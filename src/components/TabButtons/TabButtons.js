@@ -57,12 +57,12 @@ const StyledTab = styled.button`
   color: ${(props) => props.theme.colors.offWhite};
   background: ${(props) =>
     props.children === 'Forms' && props.pageState === 'Forms'
-      ? props.theme.colors.bizLight
+      ? props.theme.colors.light
       : props.children === 'Names' && props.pageState === 'Names'
-      ? props.theme.colors.bizLight
+      ? props.theme.colors.light
       : props.children === 'Animals' && props.pageState === 'Animals'
-      ? props.theme.colors.bizLight
-      : props.theme.colors.bizOrange};
+      ? props.theme.colors.light
+      : props.theme.colors.dark};
 `;
 
 //!add prop types

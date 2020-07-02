@@ -1,6 +1,7 @@
-# npm start to run project in localhost:3000
+# npm install then npm start to run project in localhost:3000
 
-
+- Data persits between tabs except for names. Also added when refreshing with localstorage
+- Tried out https://react-hook-form.com/ for form validation
 
 ## Things I've concidered / thoughts
 
