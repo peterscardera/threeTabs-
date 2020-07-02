@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TabButtons = ({ pageState, setPageState }) => {
+const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
   return (
     <StyledTabContainer>
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          setPageState('Forms');
+          return setPageState('Forms'), pageState === 'Names' && setListOfNames([]);
         }}
       >
         Forms
@@ -23,7 +23,7 @@ const TabButtons = ({ pageState, setPageState }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          setPageState('Animals');
+          return setPageState('Animals'), pageState === 'Names' && setListOfNames([]);
         }}
       >
         Animals

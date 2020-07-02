@@ -18,7 +18,7 @@ const App = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Container>
-          <TabButtons pageState={pageState} setPageState={setPageState} />
+          <TabButtons pageState={pageState} setPageState={setPageState} setListOfNames={setListOfNames} />
           {pageState === 'Forms' ? (
             <TabOneForms
               listOfAnimals={listOfAnimals}

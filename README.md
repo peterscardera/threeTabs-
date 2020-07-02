@@ -1,10 +1,11 @@
-## npm start to run project in localhost:3000
+# npm start to run project in localhost:3000
+
+
 
 ## Things I've concidered / thoughts
 
 - Initially, I used the react context api but felt it was overkill. The main sates are held instead in app.js.
-
 - When mapping, I could have used a unique identifier instead of index (for name and animal component).
 - I assumed a list was to be displayed not one entry.
 - Instead of {name:'',animal:''} as a data structure, I seperated them. Since the names data doesnt persist it was easier to have two seprate states.
-# threeTabs-
+- The second and third tabs could have been one reusable component.

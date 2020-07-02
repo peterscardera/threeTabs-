@@ -15,7 +15,7 @@ const TabTwoName = ({ listOfNames }) => {
     <>
       <Container>
         {listOfNames.length === 0
-          ? 'Please add an animal'
+          ? 'Please add a name'
           : listOfNames.map((nameObj, index) => {
               return (
                 <div key={index}>
