@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const StyledContainer = css`
   display: flex;
@@ -9,7 +9,7 @@ const StyledContainer = css`
   border: 2px solid ${(props) => props.theme.colors.bizLight};
   border-radius: 5px;
   width: 700px;
- height: 300px; 
+  height: 300px;
   @media only screen and (max-width: 735px) {
     width: 420px;
   }

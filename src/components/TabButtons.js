@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
   return (
@@ -7,8 +7,8 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          setPageState('Forms');
-          pageState === 'Names' && setListOfNames([]);
+          setPageState("Forms");
+          pageState === "Names" && setListOfNames([]);
         }}
       >
         Forms
@@ -16,7 +16,7 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          setPageState('Names');
+          setPageState("Names");
         }}
       >
         Names
@@ -24,8 +24,8 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          setPageState('Animals');
-          pageState === 'Names' && setListOfNames([]);
+          setPageState("Animals");
+          pageState === "Names" && setListOfNames([]);
         }}
       >
         Animals
@@ -37,7 +37,6 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
 export default TabButtons;
 
 const StyledTabContainer = styled.div`
-
   display: flex;
   justify-content: center;
   width: 600px;
@@ -62,13 +61,11 @@ const StyledTab = styled.button`
   padding-bottom: none;
   color: ${(props) => props.theme.colors.offWhite};
   background: ${(props) =>
-    props.children === 'Forms' && props.pageState === 'Forms'
+    props.children === "Forms" && props.pageState === "Forms"
       ? props.theme.colors.light
-      : props.children === 'Names' && props.pageState === 'Names'
+      : props.children === "Names" && props.pageState === "Names"
       ? props.theme.colors.light
-      : props.children === 'Animals' && props.pageState === 'Animals'
+      : props.children === "Animals" && props.pageState === "Animals"
       ? props.theme.colors.light
       : props.theme.colors.dark};
 `;
-
-//!add prop types

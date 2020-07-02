@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { Container } from './ReusableStyles/Container';
+import { Container } from "./ReusableStyles/Container";
 
 const List = ({ animal }) => {
   return (
@@ -10,12 +10,12 @@ const List = ({ animal }) => {
   );
 };
 
-const TabThreeAnimals = ({listOfAnimals}) => {
+const TabThreeAnimals = ({ listOfAnimals }) => {
   return (
     <>
       <Container>
         {listOfAnimals.length === 0
-          ? 'Please add an animal'
+          ? "Please add an animal"
           : listOfAnimals.map((animalObj, index) => {
               return (
                 <div key={index}>

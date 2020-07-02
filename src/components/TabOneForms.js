@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
-import { Container } from './ReusableStyles/Container';
+import { Container } from "./ReusableStyles/Container";
 
-const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNames }) => {
+const TabOneForms = ({
+  listOfAnimals,
+  setListOfAnimals,
+  listOfNames,
+  setListOfNames,
+}) => {
   //States that keep track of current entries
-  const [currentName, setCurrentName] = useState('');
-  const [currentAnimal, setCurrentAnimal] = useState('');
+  const [currentName, setCurrentName] = useState("");
+  const [currentAnimal, setCurrentAnimal] = useState("");
 
   //validation hook for the two seperate forms
   const { register, handleSubmit, errors } = useForm();
-  const { register: registerTwo, handleSubmit: HandleSubmitTwo, errors: errorsTwo } = useForm();
+  const {
+    register: registerTwo,
+    handleSubmit: HandleSubmitTwo,
+    errors: errorsTwo,
+  } = useForm();
 
   //handler updates current typing states.
   const onChangeHandler = (fieldType) => (e) => {
     const value = e.target.value;
 
-    if (fieldType === 'name') {
+    if (fieldType === "name") {
       setCurrentName(value);
-    } else if (fieldType === 'animal') {
+    } else if (fieldType === "animal") {
       setCurrentAnimal(value);
     }
   };
@@ -29,14 +38,14 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
     // e.preventDefault();
     let copy = [...listOfAnimals, { animal: currentAnimal }];
     setListOfAnimals(copy);
-    setCurrentAnimal('');
+    setCurrentAnimal("");
   };
 
   const addNameHandler = (e) => {
     // e.preventDefault();
     let copy = [...listOfNames, { name: currentName }];
     setListOfNames(copy);
-    setCurrentName('');
+    setCurrentName("");
   };
 
   return (
@@ -50,11 +59,15 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
             name="name"
             type="text"
             value={currentName}
-            onChange={onChangeHandler('name')}
+            onChange={onChangeHandler("name")}
           />
           <StyledButton type="submit">SUBMIT</StyledButton>
 
-          {errors.name && <p style={{ color: 'red', fontSize: '16px' }}>Please enter a valid name</p>}
+          {errors.name && (
+            <p style={{ color: "red", fontSize: "16px" }}>
+              Please enter a valid name
+            </p>
+          )}
         </StyledForm>
 
         <StyledForm onSubmit={HandleSubmitTwo(addAnimalHandler)}>
@@ -65,10 +78,14 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
             name="animals"
             type="text"
             value={currentAnimal}
-            onChange={onChangeHandler('animal')}
+            onChange={onChangeHandler("animal")}
           />
           <StyledButton type="submit">SUBMIT</StyledButton>
-          {errorsTwo.animals && <p style={{ color: 'red', fontSize: '16px' }}>Please enter a valid animal</p>}
+          {errorsTwo.animals && (
+            <p style={{ color: "red", fontSize: "16px" }}>
+              Please enter a valid animal
+            </p>
+          )}
         </StyledForm>
       </Container>
     </>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { Container } from './ReusableStyles/Container';
+import { Container } from "./ReusableStyles/Container";
 
 const List = ({ name }) => {
   return (
@@ -15,7 +15,7 @@ const TabTwoName = ({ listOfNames }) => {
     <>
       <Container>
         {listOfNames.length === 0
-          ? 'Please add a name'
+          ? "Please add a name"
           : listOfNames.map((nameObj, index) => {
               return (
                 <div key={index}>
