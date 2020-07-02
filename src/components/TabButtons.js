@@ -37,9 +37,13 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
 export default TabButtons;
 
 const StyledTabContainer = styled.div`
-  /* background: green; */
+
   display: flex;
   justify-content: center;
+  width: 600px;
+  @media only screen and (max-width: 735px) {
+    width: 400px;
+  }
 `;
 
 const StyledTab = styled.button`
@@ -47,7 +51,7 @@ const StyledTab = styled.button`
   cursor: pointer;
   border: none;
   height: 50px;
-  width: 160px;
+  width: 95%;
   margin-right: 5px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;

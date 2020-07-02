@@ -7,7 +7,6 @@ import TabTwoNames from './components/TabTwoNames';
 import TabThreeAnimals from './components/TabThreeAnimals';
 
 const Main = () => {
-
   //state that dictates which tab we're on
   const [pageState, setPageState] = useState('Forms');
 
@@ -41,26 +40,22 @@ const Main = () => {
       </ThemeProvider>
     </>
   );
-
-
-
 };
 
 export default Main;
 
-
 const theme = {
-    fontFamily: 'Noto Sans JP',
-    colors: {
-      light: 'RGBA(30,44,61,0.7)',
-      dark: '#373D49',
-      bizOrange: '#F95245',
-      lightOrange: 'RGBA(249,82,69,0.81)',
-      offWhite: '#EDEDED',
-      black: '#000000',
-    },
-  };
-  const GlobalStyle = createGlobalStyle`
+  fontFamily: 'Noto Sans JP',
+  colors: {
+    light: 'RGBA(30,44,61,0.7)',
+    dark: '#373D49',
+    bizOrange: '#F95245',
+    lightOrange: 'RGBA(249,82,69,0.81)',
+    offWhite: '#EDEDED',
+    black: '#000000',
+  },
+};
+const GlobalStyle = createGlobalStyle`
   html {
       box-sizing: border-box;
       background:#eee
@@ -81,13 +76,12 @@ const theme = {
     }
     button {  font-family: 'radnika_next'; }
   `;
-  
-  const Container = styled.div`
-    margin-top: 20px;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-  
+
+const Container = styled.div`
+  margin: 2% 5% 0;
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

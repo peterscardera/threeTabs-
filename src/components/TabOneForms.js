@@ -79,8 +79,6 @@ export default TabOneForms;
 
 const StyledForm = styled.form`
   margin: 20px 0 0 0;
-  height: 50%;
-  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
