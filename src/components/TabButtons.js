@@ -7,7 +7,8 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          return setPageState('Forms'), pageState === 'Names' && setListOfNames([]);
+          setPageState('Forms');
+          pageState === 'Names' && setListOfNames([]);
         }}
       >
         Forms
@@ -23,7 +24,8 @@ const TabButtons = ({ pageState, setPageState, setListOfNames }) => {
       <StyledTab
         pageState={pageState}
         onClick={() => {
-          return setPageState('Animals'), pageState === 'Names' && setListOfNames([]);
+          setPageState('Animals');
+          pageState === 'Names' && setListOfNames([]);
         }}
       >
         Animals

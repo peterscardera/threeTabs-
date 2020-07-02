@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import TabButtons from './components/TabButtons/TabButtons';
-import TabOneForms from './components/TabOne/TabOneForms';
-import TabTwoNames from './components/TabTwo/TabTwoNames';
-import TabThreeAnimals from './components/TabThree/TabThreeAnimals';
+import TabButtons from './components/TabButtons';
+import TabOneForms from './components/TabOneForms';
+import TabTwoNames from './components/TabTwoNames';
+import TabThreeAnimals from './components/TabThreeAnimals';
 
 const Main = () => {
 

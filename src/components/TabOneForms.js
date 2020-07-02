@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 
-import { Container } from '../ReusableStyles/Container';
+import { Container } from './ReusableStyles/Container';
 
 const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNames }) => {
   //States that keep track of current entries
   const [currentName, setCurrentName] = useState('');
   const [currentAnimal, setCurrentAnimal] = useState('');
 
-  //validation hook
+  //validation hook for the two seperate forms
   const { register, handleSubmit, errors } = useForm();
   const { register: registerTwo, handleSubmit: HandleSubmitTwo, errors: errorsTwo } = useForm();
 
@@ -87,6 +87,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledButton = styled.button`
+  margin-top: 8px;
   border: none;
   width: 150px;
   height: 30px;

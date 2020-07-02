@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from '../ReusableStyles/Container';
+import { Container } from './ReusableStyles/Container';
 
 const List = ({ animal }) => {
   return (
