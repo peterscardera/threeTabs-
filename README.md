@@ -9,4 +9,3 @@
 - When mapping, I could have used a unique identifier instead of index (for name and animal component).
 - I assumed a list was to be displayed not one entry.
 - Instead of {name:'',animal:''} as a data structure, I seperated them. Since the names data doesnt persist it was easier to have two seprate states.
-- The second and third tabs could have been one reusable component.

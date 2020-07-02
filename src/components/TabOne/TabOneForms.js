@@ -9,9 +9,11 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
   const [currentName, setCurrentName] = useState('');
   const [currentAnimal, setCurrentAnimal] = useState('');
 
+  //validation hook
   const { register, handleSubmit, errors } = useForm();
+  const { register: registerTwo, handleSubmit: HandleSubmitTwo, errors: errorsTwo } = useForm();
 
-  //handler that validates for string and updates current typing states.
+  //handler updates current typing states.
   const onChangeHandler = (fieldType) => (e) => {
     const value = e.target.value;
 
@@ -22,7 +24,7 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
     }
   };
 
-  //handlers that fire of changes to parent state app js.
+  //handlers that fires of changes to parent state app.js.
   const addAnimalHandler = (e) => {
     // e.preventDefault();
     let copy = [...listOfAnimals, { animal: currentAnimal }];
@@ -50,23 +52,23 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
             value={currentName}
             onChange={onChangeHandler('name')}
           />
-          <StyledButton type="submit"> SUBMIT</StyledButton>
+          <StyledButton type="submit">SUBMIT</StyledButton>
 
           {errors.name && <p style={{ color: 'red', fontSize: '16px' }}>Please enter a valid name</p>}
         </StyledForm>
 
-        <StyledForm onSubmit={handleSubmit(addAnimalHandler)}>
+        <StyledForm onSubmit={HandleSubmitTwo(addAnimalHandler)}>
           <label htmlFor="animal">Favorite animal:</label>
           <input
-            ref={register({ pattern: /^[A-Za-z]+$/i })}
+            ref={registerTwo({ pattern: /^[A-Za-z]+$/i })}
             id="animal"
             name="animals"
             type="text"
             value={currentAnimal}
             onChange={onChangeHandler('animal')}
           />
-          <StyledButton type="submit"> SUBMIT</StyledButton>
-          {errors.animals && <p style={{ color: 'red', fontSize: '16px' }}>Please enter a valid animal</p>}
+          <StyledButton type="submit">SUBMIT</StyledButton>
+          {errorsTwo.animals && <p style={{ color: 'red', fontSize: '16px' }}>Please enter a valid animal</p>}
         </StyledForm>
       </Container>
     </>
@@ -76,6 +78,8 @@ const TabOneForms = ({ listOfAnimals, setListOfAnimals, listOfNames, setListOfNa
 export default TabOneForms;
 
 const StyledForm = styled.form`
+  margin: 20px 0 0 0;
+  height: 50%;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -89,7 +93,7 @@ const StyledButton = styled.button`
   letter-spacing: 4px;
   background: ${(props) => props.theme.colors.bizOrange};
   border-radius: 4px;
-  transition: all 1s;
+  transition: all 0.5s;
   cursor: pointer;
   color: #fff;
   font-size: 16px;
