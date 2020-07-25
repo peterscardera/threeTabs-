@@ -5,16 +5,13 @@ import { useForm } from "react-hook-form";
 import { Container } from "./ReusableStyles/Container";
 
 const TabOneForms = ({
-  listOfAnimals,
-  setListOfAnimals,
-  listOfNames,
-  setListOfNames,
+  currentName,
+  currentAnimal,
+  onChangeHandler,
+  addNameHandler,
+  addAnimalHandler,
 }) => {
-  //States that keep track of current entries
-  const [currentName, setCurrentName] = useState("");
-  const [currentAnimal, setCurrentAnimal] = useState("");
 
-  //validation hook for the two seperate forms
   const { register, handleSubmit, errors } = useForm();
   const {
     register: registerTwo,
@@ -22,33 +19,7 @@ const TabOneForms = ({
     errors: errorsTwo,
   } = useForm();
 
-  //handler updates current typing states.
-  const onChangeHandler = (fieldType) => (e) => {
-    const value = e.target.value;
-
-    if (fieldType === "name") {
-      setCurrentName(value);
-    } else if (fieldType === "animal") {
-      setCurrentAnimal(value);
-    }
-  };
-
-  //handlers that fires of changes to parent state app.js.
-  const addAnimalHandler = (e) => {
-    // e.preventDefault();
-    let copy = [...listOfAnimals, { animal: currentAnimal }];
-    setListOfAnimals(copy);
-    setCurrentAnimal("");
-  };
-
-  const addNameHandler = (e) => {
-    // e.preventDefault();
-    let copy = [...listOfNames, { name: currentName }];
-    setListOfNames(copy);
-    setCurrentName("");
-  };
-
-  return (
+    return (
     <>
       <Container>
         <StyledForm onSubmit={handleSubmit(addNameHandler)}>

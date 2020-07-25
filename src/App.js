@@ -16,9 +16,39 @@ const App = () => {
     () => JSON.parse(localStorage.getItem("animals")) || []
   );
 
+  //States that keep track of current entries
+  const [currentName, setCurrentName] = useState("");
+  const [currentAnimal, setCurrentAnimal] = useState("");
+
   useEffect(() => {
     localStorage.setItem("animals", JSON.stringify(listOfAnimals));
   }, [listOfAnimals]);
+
+  //handler updates current typing states.
+  const onChangeHandler = (fieldType) => (e) => {
+    const value = e.target.value;
+
+    if (fieldType === "name") {
+      setCurrentName(value);
+    } else if (fieldType === "animal") {
+      setCurrentAnimal(value);
+    }
+  };
+
+  //handlers that fires of changes to parent state app.js.
+  const addAnimalHandler = (e) => {
+    // e.preventDefault();
+    let copy = [...listOfAnimals, { animal: currentAnimal }];
+    setListOfAnimals(copy);
+    setCurrentAnimal("");
+  };
+
+  const addNameHandler = (e) => {
+    // e.preventDefault();
+    let copy = [...listOfNames, { name: currentName }];
+    setListOfNames(copy);
+    setCurrentName("");
+  };
 
   return (
     <>
@@ -32,10 +62,11 @@ const App = () => {
           />
           {pageState === "Forms" ? (
             <TabOneForms
-              listOfAnimals={listOfAnimals}
-              setListOfAnimals={setListOfAnimals}
-              listOfNames={listOfNames}
-              setListOfNames={setListOfNames}
+              onChangeHandler={onChangeHandler}
+              currentName={currentName}
+              currentAnimal={currentAnimal}
+              addAnimalHandler={addAnimalHandler}
+              addNameHandler={addNameHandler}
             />
           ) : pageState === "Names" ? (
             <TabTwoNames listOfNames={listOfNames} />

@@ -1,7 +1,9 @@
 # Instructions
 
-- npm install then npm start to run project in localhost:3000
+<img  src="./public/home.png" />
 
+- npm install then npm start to run project in localhost:3000
+- used StyledComponents
 ## Notes
 
 - Data persits between tabs except for names.
